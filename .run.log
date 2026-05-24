@@ -1,0 +1,5770 @@
+[AI Outfit] Prompt:
+ 你是户外穿搭顾问。请为用户 7 天的出差行程生成 3 套轮换穿搭方案。这些方案在全部行程中循环使用，不必每天不同。
+
+输入信息：
+- 目的地：西安
+- 出行日期：2026-05-25
+- 出行天数：7 天
+- 出行目的：旅游
+- 每日天气预报：
+  2026-05-25：大雨，18℃ ~ 27℃
+  2026-05-26：阴，21℃ ~ 28℃
+  2026-05-27：毛毛雨，20℃ ~ 24℃
+  2026-05-28：阴，18℃ ~ 25℃
+  2026-05-29：毛毛雨，15℃ ~ 23℃
+  2026-05-30：晴，14℃ ~ 29℃
+  2026-05-31：阴，19℃ ~ 29℃
+
+行李策略：精简出差（严格控制总量，共 3 套轮换方案）
+- 总衣物控制在3套轮换以内，优先快干面料，当晚洗次日干。
+- 上衣不超过4件（以T恤/速干衬衫为主，可含1件长袖防晒/空调房备用）。
+- 下装不超过3条（2条轻薄长裤+1条短裤，或根据场景调整）。
+- 外套1件（夏季轻薄皮肤衣/防风夹克，兼顾防晒和早晚温差）。
+- 鞋子策略（重要）：
+  • 默认只带1双主力鞋，从已有装备中选最适合本次行程的1双即可。
+  • 仅当出行目的明确涉及登山、徒步、越野跑、攀岩等户外运动时才额外带1双专用鞋（登山鞋/越野鞋）。
+  • 本次出行目的为「旅游」，属常规出差，只带1双鞋，绝不要推荐第二双。
+- 所有推荐必须基于用户已有装备，不得虚构。
+
+可用装备（已按状态/品类预筛选，温标信息已隐藏，请根据装备品类和名称自行判断适合温度）：
+[
+  {
+    "id": "319e6771-6970-4d38-b52d-45a67b423910",
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "color": null,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "4e6110d1-93e3-4883-b229-840f1f8050f5",
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "id": "00d555b2-2928-4b3d-9584-ce40042c57b2",
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "color": "灰色",
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "id": "c506f206-1d79-424b-9b2e-9280b9731660",
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "id": "a1252e8c-5554-4471-bc1b-c24acc773de5",
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "id": "58f5cbd1-f75c-48cc-bdd1-864f6bde8cef",
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "id": "ca29cbb5-5366-4e2b-9773-d891ef699cdc",
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "id": "032f7745-537f-4ef3-8e6f-7efd27b6032d",
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "color": "深山影绿",
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "id": "ce788bdf-5f05-4549-9342-f3e07ca7a512",
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "id": "f8417920-9430-401d-a071-848d528ea94f",
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "color": "杂色黑",
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "id": "a7486b3f-255a-461f-bd27-58c67db0ede0",
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "id": "e81a6160-c030-4478-a192-a1764e64c7e1",
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "color": "幽雾绿",
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "id": "c50dc4c3-a979-413f-8696-2b29bce9fcfa",
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "id": "93fb47e2-fe20-4569-b947-37fe6337403d",
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "color": "米白色",
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "id": "a900678c-c70a-4736-85f8-7f6c06e6a70f",
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "color": "灰卡其色",
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "id": "ef889bdf-b012-4a72-b7f4-04a84f06915b",
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "color": "粘土白",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "3a3c297b-cc18-4d34-b089-f8d11bd64b18",
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "color": "碳灰色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "6a41d67b-a550-4198-a2c0-e29141916300",
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "color": "卡其色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "08b96258-fb41-4ff2-9d24-5263b035398b",
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "color": "灰色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "62e0e74f-4922-4efd-b686-9fc01cbd1380",
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "color": "军绿色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "a6a38120-53f6-4a82-a2af-37fc6c2792c1",
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "id": "dc588967-19e7-4406-9aff-132f6413715d",
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "id": "83757247-a745-4dbc-be51-2df5e5a12e7d",
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "color": "蓝绿色",
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "id": "ea1dcbe8-2ce6-4e50-9bd4-a416068f4955",
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "id": "332c4354-bb1b-419f-920e-65b9cefc4c8c",
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "color": "海军蓝",
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "id": "42ad478a-79a7-4b09-aed7-a9786043a21d",
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "id": "e22997b1-2696-4d69-bf90-df67e6c09cab",
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "id": "469ae769-aaa4-46cf-b0cc-a275b2b45eb6",
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "color": "灰卡其色",
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "id": "dab6e8a6-f564-4952-a59d-049f99cf410e",
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "color": "野菇灰/蘑菇灰",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "ee98b02b-f93a-4d0d-aee5-d99f4c6b8610",
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "color": "橄榄绿",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "a4f5459c-1d0b-4dd5-9419-f9389c7d4b30",
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "color": "褐色",
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "id": "0ac4f6d8-e20b-427a-aa0f-9b608b62d0d3",
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+要求：
+1) 根据出行目的调整穿搭风格（旅游偏功能舒适、商务出差偏简洁正式、日常通勤偏实用）。
+2) outfits 数组长度**必须**为 3（绝对不能等于 ${days}），每套是一个独立轮换方案，day 字段为方案编号（1-${outfitCount}），不是行程天数。比如 5 天出差只返回 3 套方案，用户自行循环穿。。
+3) 每套穿搭的 topLayers 按从内到外的顺序排列。
+4) 优先复用装备（如基础层可重复），但外套尽量错开，保持新鲜感。
+5) 考虑颜色搭配协调性，避免同套内颜色冲突。
+6) 仅可使用输入装备，不得虚构。
+7) 在 summary 中明确写出这 ${outfitCount} 套方案如何在 ${days} 天中轮换。若某方案存在不足在 notes 说明。
+8) 输出中文，简洁可执行。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Outfit] Response:
+ {
+  "feasible": true,
+  "missingLayers": [],
+  "weather": [
+    {
+      "date": "2026-05-25",
+      "minTemp": 18,
+      "maxTemp": 27,
+      "condition": "大雨"
+    },
+    {
+      "date": "2026-05-26",
+      "minTemp": 21,
+      "maxTemp": 28,
+      "condition": "阴"
+    },
+    {
+      "date": "2026-05-27",
+      "minTemp": 20,
+      "maxTemp": 24,
+      "condition": "毛毛雨"
+    },
+    {
+      "date": "2026-05-28",
+      "minTemp": 18,
+      "maxTemp": 25,
+      "condition": "阴"
+    },
+    {
+      "date": "2026-05-29",
+      "minTemp": 15,
+      "maxTemp": 23,
+      "condition": "毛毛雨"
+    },
+    {
+      "date": "2026-05-30",
+      "minTemp": 14,
+      "maxTemp": 29,
+      "condition": "晴"
+    },
+    {
+      "date": "2026-05-31",
+      "minTemp": 19,
+      "maxTemp": 29,
+      "condition": "阴"
+    }
+  ],
+  "summary": "共3套方案，7天循环穿搭：方案1（舒适耐磨）用于第1、4、7天；方案2（透气防晒）用于第2、5天；方案3（灵活防雨）用于第3、6天。外套两款（TNF防晒皮肤衣和MAMMUT徒步防风夹克）交替使用，鞋子仅带HOKA CHALLENGER 8 ATR一双，兼顾舒适与防滑。",
+  "outfits": [
+    {
+      "day": 1,
+      "topLayers": [
+        "Cormac Crew SS 速干 T 恤",
+        "TNF 透气防晒皮肤衣"
+      ],
+      "bottomLayer": "Mammut Trekkers 3.0 软壳裤 (黑色)",
+      "footwear": "HOKA CHALLENGER 8 ATR 跑鞋",
+      "accessories": [],
+      "notes": "皮肤衣可防小雨和防晒，适合大雨天叠穿或单独使用。"
+    },
+    {
+      "day": 2,
+      "topLayers": [
+        "Montbell 长袖速干 T 恤",
+        "TNF 透气防晒皮肤衣"
+      ],
+      "bottomLayer": "小野人 直筒裤 (GMP-24SC01)",
+      "footwear": "HOKA CHALLENGER 8 ATR 跑鞋",
+      "accessories": [],
+      "notes": "长袖速干T恤防晒，皮肤衣应对阴天温差。"
+    },
+    {
+      "day": 3,
+      "topLayers": [
+        "Cormac Crew SS 速干 T 恤",
+        "MAMMUT Hiking 徒步防风夹克"
+      ],
+      "bottomLayer": "Mammut Trekkers 3.0 软壳裤 (深山影绿)",
+      "footwear": "HOKA CHALLENGER 8 ATR 跑鞋",
+      "accessories": [],
+      "notes": "防风夹克防毛毛雨和风，软壳裤略有弹性，行动方便。"
+    }
+  ],
+  "notes": [
+    "所有上衣速干，当晚洗次日干，最多带3件T恤和1件长袖即可。",
+    "下装带2条长裤（1黑1绿）和1条短裤（可选，但未使用），实际带2条长裤轮换。",
+    "鞋子只带HOKA CHALLENGER 8 ATR，适合城市和轻度湿滑路面。",
+    "若下雨天需要更强防水，可考虑带一把折叠伞。"
+  ]
+}
+ POST /recommend 200 in 7579ms
+ ✓ Compiled in 231ms (1035 modules)
+ GET /recommend 200 in 130ms
+ ✓ Compiled / in 368ms (1122 modules)
+ GET / 200 in 1648ms
+ ✓ Compiled in 250ms (1136 modules)
+ GET / 200 in 101ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.5s
+ ✓ Compiled /middleware in 354ms (213 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (101kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (231kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling / ...
+ ✓ Compiled / in 1599ms (1023 modules)
+ GET / 200 in 2978ms
+ ✓ Compiled /recommend in 448ms (1136 modules)
+ GET /recommend 200 in 557ms
+ GET /recommend 200 in 33ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+Pace Breaker 男士运动短裤 9" *无内衬速干丨lululemon丨LM7BD6S
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10，分数越高越值得买。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning System: To turn off warning logging, set the AI_SDK_LOG_WARNINGS global to false.
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "Pace Breaker 男士运动短裤 9\" *无内衬速干",
+  "extractedBrand": "lululemon",
+  "extractedCategory": "裤装",
+  "extractedPrice": 0,
+  "extractedFeatures": "9英寸内长，无内衬，速干面料",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "身高170cm、体重75kg，运动短裤通常有弹性腰带，适合中等体型；无内衬设计适合搭配内裤使用；9英寸长度适合中年男性，不过于短小。"
+  },
+  "purchaseIndex": 5,
+  "conclusion": "谨慎购买",
+  "overlapScore": 70,
+  "budgetPremiumRate": 0,
+  "complementarityScore": 30,
+  "summary": "该短裤功能明确，但用户已有两条TNF夏季速干运动短裤（功能高度重叠），且价格未知导致预算分析缺失，建议仅在需要更佳版型或品牌偏好时购买。",
+  "reasons": [
+    "用户已有两条TNF夏季速干运动短裤，功能覆盖类似场景，重叠度高",
+    "未提供价格，无法评估预算合理性",
+    "互补性低，用户已有足够夏季短裤搭配现有上衣"
+  ],
+  "neutralAdvice": [
+    "若现有短裤磨损或不合身，可考虑更换",
+    "lululemon版型通常修身，建议试穿确认尺码",
+    "关注折扣或与现有装备搭配使用，避免闲置"
+  ]
+}
+ POST /recommend 200 in 4652ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+Pace Breaker 男士运动短裤 7" *无内衬丨lululemon丨LM7B80S
+已售 600+
+可开发票
+超2千人加购
+￥
+550
+
+5月30日 24点
+结束
+预计今天发货，后天送达
+顺丰包邮
+江苏苏州 至 北京市 大兴区 
+大促价保退货宝88VIP退货包运费假一赔四极速退款7天无理由退换
+颜色分类
+切换大图模式
+
+骨白
+千人加购
+
+宁静蓝
+
+浅象牙白
+
+石墨灰
+
+银滴灰
+
+暖褐灰
+
+黑色
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10，分数越高越值得买。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "Pace Breaker 男士运动短裤 7\" *无内衬",
+  "extractedBrand": "lululemon",
+  "extractedCategory": "短裤",
+  "extractedPrice": 550,
+  "extractedFeatures": "7英寸内缝长，无内衬设计，适合运动休闲",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "用户身高170cm，体重75kg，该短裤为运动宽松版型，适合该体型；年龄48岁，该款式偏运动休闲，无明显年轻化倾向，适合日常穿着。"
+  },
+  "purchaseIndex": 6,
+  "conclusion": "建议购买",
+  "overlapScore": 40,
+  "budgetPremiumRate": -0.05,
+  "complementarityScore": 70,
+  "summary": "该短裤品牌可靠，价格合理，与现有装备互补性较好，但用户已有两条TNF夏季速干运动短裤，功能略有重叠。",
+  "reasons": [
+    "品牌lululemon品质可靠，用户已有该品牌裤装，体验良好",
+    "价格550元低于同类短裤均价约579元，性价比高",
+    "可与现有TNF速干短裤轮换使用，减少重复磨损",
+    "版型适合该用户的身高体重，运动休闲风格通用性强"
+  ],
+  "neutralAdvice": [
+    "若已有短裤足够使用，可考虑暂缓购买",
+    "如需增强运动装备多样性，此款是不错选择"
+  ]
+}
+ POST /recommend 200 in 5146ms
+ ✓ Compiled in 223ms (1136 modules)
+ GET /recommend 200 in 113ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 168ms (1136 modules)
+ GET /recommend 200 in 595ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/recommend'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 916ms (1470 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+ POST /recommend 500 in 2478ms
+ POST /recommend 500 in 260ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+ GET /recommend 500 in 706ms
+ GET /recommend 500 in 231ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+ GET /recommend 500 in 719ms
+ GET /recommend 500 in 259ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json',
+  page: '/recommend'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/prerender-manifest.json'
+}
+ GET /recommend 500 in 729ms
+ GET /recommend 500 in 262ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1951ms
+ ✓ Compiled /middleware in 339ms (213 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (101kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (231kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /recommend ...
+ ✓ Compiled /recommend in 1891ms (1053 modules)
+ GET /recommend 200 in 2995ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+Pace Breaker 男士运动短裤 7" *无内衬丨lululemon丨LM7B80S
+已售 600+
+可开发票
+超2千人加购
+￥
+550
+
+5月30日 24点
+结束
+预计今天发货，后天送达
+顺丰包邮
+江苏苏州 至 北京市 大兴区 
+大促价保退货宝88VIP退货包运费假一赔四极速退款7天无理由退换
+颜色分类
+切换大图模式
+
+骨白
+千人加购
+
+宁静蓝
+
+浅象牙白
+
+石墨灰
+
+银滴灰
+
+暖褐灰
+
+黑色
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning System: To turn off warning logging, set the AI_SDK_LOG_WARNINGS global to false.
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "Pace Breaker 男士运动短裤 7\" 无内衬",
+  "extractedBrand": "lululemon",
+  "extractedCategory": "短裤",
+  "extractedPrice": 550,
+  "extractedFeatures": "7英寸内缝长，无内衬设计，适合运动和日常穿着",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "运动短裤通常采用弹性面料和宽松版型，170cm/75kg的身材通常能穿M或L码，适合运动穿着"
+  },
+  "purchaseIndex": 7,
+  "conclusion": "建议购买",
+  "overlapScore": 40,
+  "budgetPremiumRate": 0.1,
+  "complementarityScore": 70,
+  "productReview": {
+    "rating": 8,
+    "quality": "lululemon工艺精湛，面料柔软透气，耐用性好",
+    "pros": [
+      "面料舒适亲肤",
+      "剪裁利落有型",
+      "适合多种运动场景"
+    ],
+    "cons": [
+      "无内衬需自行搭配",
+      "价格略高"
+    ],
+    "valueComment": "同价位运动短裤中品质出色，但需考虑无内衬的额外成本"
+  },
+  "summary": "该短裤适合日常与运动穿着，与已有资产重叠度不高，搭配性强，预算略高于历史均价但仍合理",
+  "reasons": [
+    "已有短裤均为TNF及GRAMICCI，功能定位不同，重叠度40%",
+    "可搭配现有ARC'TERYX速干T恤等上衣",
+    "价格550元略高于同类历史均价，但考虑品牌溢价可接受"
+  ],
+  "neutralAdvice": [
+    "若在意内衬，建议另购；若追求舒适度，值得入手"
+  ]
+}
+ POST /recommend 200 in 5180ms
+ ✓ Compiled in 211ms (1035 modules)
+ GET /recommend 200 in 114ms
+ ✓ Compiled in 146ms (1035 modules)
+ GET /recommend 200 in 67ms
+[Error: Failed to find Server Action "4089d85084bda5ffce81bacd2def110dc42d230b34". This request might be from an older or newer deployment.
+Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+ POST /recommend 404 in 140ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 27.1s
+ ✓ Compiled /middleware in 324ms (213 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (101kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (231kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /recommend ...
+ ✓ Compiled /recommend in 1946ms (1053 modules)
+ GET /recommend 200 in 2645ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+OSPREY COMET 彗星城市旅游通勤书包小鹰登山双肩背包 784元
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning System: To turn off warning logging, set the AI_SDK_LOG_WARNINGS global to false.
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "OSPREY COMET 彗星城市旅游通勤书包小鹰登山双肩背包",
+  "extractedBrand": "OSPREY",
+  "extractedCategory": "背包",
+  "extractedPrice": 784,
+  "extractedFeatures": "城市旅游通勤、登山双肩背包",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "该背包为通用型背包，尺码通常为均码，适合170cm、75kg体型，且48岁年龄使用城市通勤和轻度旅游无问题。"
+  },
+  "purchaseIndex": 5,
+  "conclusion": "谨慎购买",
+  "overlapScore": 70,
+  "budgetPremiumRate": 1,
+  "complementarityScore": 30,
+  "productReview": {
+    "rating": 8,
+    "quality": "Osprey品牌口碑好，彗星系列定位城市通勤与轻户外，面料耐磨，背负系统舒适，做工精良。",
+    "pros": [
+      "品牌可靠，耐用性好",
+      "背负系统舒适，适合长时间携带",
+      "功能分区合理，城市通勤实用"
+    ],
+    "cons": [
+      "容量可能较小（约20L），不适合多日徒步",
+      "颜色选择有限",
+      "价格略高于同类国产背包"
+    ],
+    "valueComment": "784元价位属于Osprey中端水平，同价位有Deuter、Gregory等竞品，性价比一般，但品质有保障。"
+  },
+  "summary": "该背包适合城市通勤和轻度旅游，但用户已有TNF双肩背包和Osprey Daylite Plus，功能重叠度较高，建议优先使用现有背包。",
+  "reasons": [
+    "已有TNF双肩背包（城市通勤通用）和Osprey Daylite Plus（户外徒步），功能覆盖该背包定位。",
+    "重复投资：与现有背包功能重叠度高，70%重叠。",
+    "互补性一般，仅能作为现有背包的备选。",
+    "价格与同类相比偏高，但品质尚可。"
+  ],
+  "neutralAdvice": [
+    "若日常通勤需双肩包，可优先使用已有的TNF背包。",
+    "如有轻户外需求，现有Osprey Daylite Plus已足够。",
+    "除非对Osprey品牌有偏好或需要备用，否则不建议重复购买。"
+  ]
+}
+ POST /recommend 200 in 6178ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+OSPREY COMET 彗星城市旅游通勤书包小鹰登山双肩背包 784元 30升
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "OSPREY COMET 彗星城市旅游通勤书包小鹰登山双肩背包",
+  "extractedBrand": "OSPREY",
+  "extractedCategory": "背包",
+  "extractedPrice": 784,
+  "extractedFeatures": "30升，城市旅游通勤，登山双肩背包",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "30升容量适合日常通勤和短途旅行，背负系统可调节，适合170cm/75kg体型。"
+  },
+  "purchaseIndex": 6,
+  "conclusion": "谨慎购买",
+  "overlapScore": 70,
+  "budgetPremiumRate": 0,
+  "complementarityScore": 50,
+  "productReview": {
+    "rating": 8,
+    "quality": "Osprey品牌口碑好，彗星系列定位城市通勤，做工精良，背负舒适，但相比专业登山包自重略重。",
+    "pros": [
+      "品牌可靠",
+      "容量适中",
+      "背负系统舒适",
+      "多功能分隔"
+    ],
+    "cons": [
+      "自重偏重",
+      "无防水罩",
+      "同价位有更轻选项"
+    ],
+    "valueComment": "784元价格合理，同价位竞品如Gregory、Deuter类似款，性价比中上。"
+  },
+  "summary": "该背包与现有两个背包（TNF 3VY2、Osprey Daylite Plus）功能重叠度高，但容量不同，可互补短途出行。用户现有Osprey Daylite Plus 20L更轻便，TNF 3VY2 城市通勤，新增30L略大，但考虑年龄和用途，建议按需购买。",
+  "reasons": [
+    "已有两个背包，功能重叠",
+    "容量略大但非必需",
+    "品牌忠诚度较高"
+  ],
+  "neutralAdvice": [
+    "若已有背包无法满足30L需求，可以考虑购买",
+    "建议先试用现有背包是否足够",
+    "关注其他品牌同价位轻量款"
+  ]
+}
+ POST /recommend 200 in 5591ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+ARC'TERYX始祖鸟 ENVOY GRAND WALL SS 男子 短袖T恤 ORION/深藏青 XL 1000元
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "ENVOY GRAND WALL SS 男子 短袖T恤",
+  "extractedBrand": "ARC'TERYX",
+  "extractedCategory": "短袖T恤",
+  "extractedPrice": 1000,
+  "extractedFeatures": "男款短袖T恤，颜色ORION/深藏青，尺码XL",
+  "fitAssessment": {
+    "suitable": false,
+    "reason": "用户身高170cm、体重75kg，XL尺码过大，建议选择M或L码。"
+  },
+  "purchaseIndex": 4,
+  "conclusion": "谨慎购买",
+  "overlapScore": 80,
+  "budgetPremiumRate": 1.47,
+  "complementarityScore": 30,
+  "productReview": {
+    "rating": 7,
+    "quality": "始祖鸟品牌做工精湛，面料采用Phasic™吸湿排汗技术，适合夏季运动穿着。但作为基础款T恤，定价偏高。",
+    "pros": [
+      "品牌口碑好",
+      "面料品质高",
+      "吸湿排汗性能强"
+    ],
+    "cons": [
+      "价格昂贵",
+      "功能单一",
+      "尺码选择需谨慎"
+    ],
+    "valueComment": "同价位可买到多件其他品牌高性能速干T恤，性价比一般。"
+  },
+  "summary": "该短袖T恤品质不错，但尺码不合适且与现有资产中多件同类短袖功能重叠，价格高于历史均价，不建议购买。",
+  "reasons": [
+    "尺码XL过大，不符合用户体型",
+    "已有ARC'TERYX、Mammut等多件长袖T恤，功能覆盖夏季速干需求",
+    "预算溢价率高（1.47倍于历史均价）"
+  ],
+  "neutralAdvice": [
+    "若喜欢该款式，建议选购M或L码",
+    "可考虑其他品牌短袖T恤，以更低成本满足需求"
+  ]
+}
+ POST /recommend 200 in 5155ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+ARC'TERYX始祖鸟 ENVOY GRAND WALL SS 男子 短袖T恤 ORION/深藏青 L 1000元
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "ENVOY GRAND WALL SS 短袖T恤",
+  "extractedBrand": "ARC'TERYX",
+  "extractedCategory": "短袖T恤",
+  "extractedPrice": 1000,
+  "extractedFeatures": "始祖鸟 Grand Wall 系列短袖T恤，常规版型，棉质面料，深藏青色，L码",
+  "fitAssessment": {
+    "suitable": false,
+    "reason": "L码适合身高170cm体重75kg的用户，但用户已有多个同类功能性速干T恤，此款为纯棉休闲款，与用户户外运动定位不符，且年龄48岁，偏休闲款式可能不够日常"
+  },
+  "purchaseIndex": 4,
+  "conclusion": "谨慎购买",
+  "overlapScore": 85,
+  "budgetPremiumRate": 0.61,
+  "complementarityScore": 20,
+  "productReview": {
+    "rating": 6,
+    "quality": "始祖鸟品牌品质优秀，棉质面料舒适，但作为普通短袖T恤，1000元定价偏高，缺乏科技面料或特殊功能",
+    "pros": [
+      "品牌知名度高",
+      "做工精细",
+      "款式经典"
+    ],
+    "cons": [
+      "价格昂贵",
+      "无速干防晒等户外功能",
+      "纯棉面料易皱"
+    ],
+    "valueComment": "同价位可买到功能性更好的速干T恤或高端棉T恤，性价比一般"
+  },
+  "summary": "该短袖T恤为始祖鸟休闲款，品质好但价格高，与用户现有大量功能性T恤重叠，且用户无纯棉休闲T恤刚需，不推荐购买。",
+  "reasons": [
+    "用户已有5件长袖T恤和2件短袖T恤，功能覆盖速干、防晒等，此款纯棉休闲T恤功能重叠高",
+    "1000元价格较同类均价600元溢价61%，性价比低",
+    "用户48岁，该款式偏年轻化，版型为常规型，不如已有Lululemon等品牌休闲T恤实用"
+  ],
+  "neutralAdvice": [
+    "可考虑购买功能性速干短袖T恤以替换旧款",
+    "若确实需要纯棉休闲T恤，建议选择价格更低的品牌如Uniqlo",
+    "关注始祖鸟Outlets或折扣渠道以降低花费"
+  ]
+}
+ POST /recommend 200 in 6398ms
+ ✓ Compiled / in 346ms (1136 modules)
+ GET / 200 in 1323ms
+ GET / 200 in 28ms
+ ✓ Compiled /query in 185ms (1143 modules)
+ GET /query 200 in 1200ms
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand=ARC%E2%80%99TERYX 200 in 1694ms
+ GET /recommend 200 in 32ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+Cormac Crew SS 速干 T 恤
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning System: To turn off warning logging, set the AI_SDK_LOG_WARNINGS global to false.
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "Cormac Crew SS 速干 T 恤",
+  "extractedBrand": "ARC’TERYX",
+  "extractedCategory": "长袖T恤",
+  "extractedPrice": 0,
+  "extractedFeatures": "速干",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "速干T恤版型通常为运动剪裁，适合170cm/75kg体型，长袖设计可防晒，48岁用户日常或低强度活动均可穿着。"
+  },
+  "purchaseIndex": 2,
+  "conclusion": "暂不购买",
+  "overlapScore": 95,
+  "budgetPremiumRate": 0,
+  "complementarityScore": 5,
+  "productReview": {
+    "rating": 8,
+    "quality": "Arc'teryx Cormac面料采用Phasic™速干科技，透气排汗性能出色，做工精细，但价格较高。",
+    "pros": [
+      "速干性强",
+      "透气性好",
+      "轻量"
+    ],
+    "cons": [
+      "价格偏高",
+      "款式单一"
+    ],
+    "valueComment": "同类竞品如Patagonia Capilene或Mammut Essential性价比更高，此款仅适合追求极致性能的用户。"
+  },
+  "summary": "用户已有完全相同的商品（Cormac Crew SS 速干 T 恤，品牌ARC’TERYX，价格631元，状态在用），强行购买构成完全重复投资；且已有同类速干T恤（TNF、Mammut等）多件，功能重叠极高。建议暂不购买。",
+  "reasons": [
+    "已有完全相同的Cormac Crew SS速干T恤（在用）",
+    "用户现有T恤数量充足，覆盖速干、防晒等功能",
+    "无法提取拟购价格，但已有资产中同类商品价格区间168-695元"
+  ],
+  "neutralAdvice": [
+    "避免重复购买同一型号",
+    "如确需补充，可考虑长袖或不同品牌的速干T恤以丰富功能",
+    "关注现有T恤的使用频率，待现有装备损耗后再考虑更新"
+  ]
+}
+ POST /recommend 200 in 5337ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+Cormac Crew SS 速干短袖 T 恤
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "Cormac Crew SS 速干短袖 T 恤",
+  "extractedBrand": "ARC’TERYX",
+  "extractedCategory": "短袖T恤",
+  "extractedPrice": 0,
+  "extractedFeatures": "速干短袖",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "身高170cm、体重75kg属于标准偏壮体型，Arc'teryx常规版型可按L码选择，适合日常和低强度户外活动。"
+  },
+  "purchaseIndex": 3,
+  "conclusion": "暂不购买",
+  "overlapScore": 85,
+  "budgetPremiumRate": 0,
+  "complementarityScore": 30,
+  "productReview": {
+    "rating": 7,
+    "quality": "Arc'teryx速干面料做工精良，轻薄透气，适合夏季运动。",
+    "pros": [
+      "速干性能出色",
+      "轻量舒适",
+      "品牌做工可靠"
+    ],
+    "cons": [
+      "价格较高",
+      "功能单一，仅适合夏季日常"
+    ],
+    "valueComment": "同价位可买到功能更全面的速干T恤，性价比一般。"
+  },
+  "summary": "用户已有同品牌同系列（Cormac Crew SS）速干T恤（长袖），且库存中已有大量长袖速干T恤，短袖版本功能重叠度高，但可作为夏季特定场景补充。鉴于价格未明确且已有类似装备，建议暂缓购买。",
+  "reasons": [
+    "已有同品牌同系列长袖版（Cormac Crew SS长袖T恤）",
+    "库存中长袖速干T恤多达6件，功能覆盖",
+    "短袖版本仅改变袖长，季节性补充而非必需"
+  ],
+  "neutralAdvice": [
+    "如需夏季短袖，可优先使用现有长袖卷起或等待促销",
+    "若确认需要，建议对比价格后再决定"
+  ]
+}
+ POST /recommend 200 in 4949ms
+[AI Audit] Prompt:
+ 你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
+
+用户画像（审计必须考虑）：
+- 身高：170cm
+- 体重：75kg
+- 年龄：48岁
+
+拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
+salomon萨洛蒙男运动外套风壳®防风外套SENSE AERO WIND JKT M  咖啡豆棕 M码 958元
+
+用户现有资产（用于查重和互补分析）：
+[
+  {
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 695,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "purchase_price": 928,
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "purchase_price": 631,
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1233,
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "purchase_price": 228,
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "长袖T恤",
+    "purchase_price": 474,
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "裤装",
+    "purchase_price": 784,
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 1295,
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "裤装",
+    "purchase_price": 764,
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "裤装",
+    "purchase_price": 446.5,
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 599,
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "name": "TNF 双肩背包 3VY2",
+    "brand": "TNF",
+    "category": "背包",
+    "purchase_price": 448,
+    "status": "在用",
+    "remarks": "定位为城市通勤与轻度户外通用的双肩包"
+  },
+  {
+    "name": "Osprey Daylite Plus 20L",
+    "brand": "OSPREY",
+    "category": "背包",
+    "purchase_price": 365,
+    "status": "在用",
+    "remarks": "户外徒步登山"
+  },
+  {
+    "name": "Mammut Sublime Beanie 针织帽",
+    "brand": "MAMMUT",
+    "category": "其他",
+    "purchase_price": 260,
+    "status": "在用",
+    "remarks": "淘宝购入；日本直邮 (✨NEW)"
+  },
+  {
+    "name": "NU25 MCT UL 头灯",
+    "brand": "NITECORE",
+    "category": "安全装备",
+    "purchase_price": 133,
+    "status": "在用",
+    "remarks": "京东购入；轻量多色温 (✨NEW)"
+  },
+  {
+    "name": "Montbell 防风保暖手套 (1118709)",
+    "brand": "Montbell",
+    "category": "其他",
+    "purchase_price": 248,
+    "status": "在用",
+    "remarks": "京东购入；轻便防风 (✨NEW)"
+  },
+  {
+    "name": "Thermos JNL502 保温杯",
+    "brand": "THERMOS",
+    "category": "安全装备",
+    "purchase_price": 89,
+    "status": "在用",
+    "remarks": "黑色"
+  },
+  {
+    "name": "Fujifilm X-T50 机身",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 9999,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 16-50mm F2.8-4.8",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 2859,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Fujifilm XF 33mm F1.4 R LM WR",
+    "brand": "Fujifilm",
+    "category": "其他",
+    "purchase_price": 5165,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "神牛 V350-F 闪光灯",
+    "brand": "神牛",
+    "category": "其他",
+    "purchase_price": 745,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "盖亚 Pro 摄影包",
+    "brand": "盖亚",
+    "category": "背包",
+    "purchase_price": 279,
+    "status": "在用",
+    "remarks": "1 机 2 镜"
+  },
+  {
+    "name": "OneGo Lite 背包",
+    "brand": "PGYTECH",
+    "category": "背包",
+    "purchase_price": 579,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "purchase_price": 2990,
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "长袖T恤",
+    "purchase_price": 256,
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 358,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 329,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "purchase_price": 449,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "purchase_price": 507,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 629,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 1708,
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 324,
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "purchase_price": 168,
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "purchase_price": 499,
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "长袖T恤",
+    "purchase_price": 280,
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 298,
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "裤装",
+    "purchase_price": 349,
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "裤装",
+    "purchase_price": 639,
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "purchase_price": 993,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "裤装",
+    "purchase_price": 214,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "purchase_price": 998,
+    "status": "在用",
+    "remarks": "褐色"
+  },
+  {
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "purchase_price": 1519,
+    "status": "在用",
+    "remarks": null
+  }
+]
+
+审计维度与要求：
+0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
+1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
+3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
+4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
+5) 结论必须中立，避免"强烈建议/严厉否定"等措辞。
+6) purchaseIndex 为 1-10（综合购买建议，越低越不值得买）；productReview.rating 为 1-10（商品本身品质，与购买指数独立）。
+7) reasons 和 neutralAdvice 均使用中文短句，且每条都要有实际依据。
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Audit] Response:
+ {
+  "extractedName": "SENSE AERO WIND JKT M 风壳®防风外套",
+  "extractedBrand": "Salomon",
+  "extractedCategory": "软壳/皮肤衣",
+  "extractedPrice": 958,
+  "extractedFeatures": "风壳®技术，防风，轻量，M码",
+  "fitAssessment": {
+    "suitable": true,
+    "reason": "用户身高170cm、体重75kg，M码通常适合170-175cm、65-75kg，用户体重处于上限，但风壳设计宽松，应可穿着。48岁年龄无限制。"
+  },
+  "purchaseIndex": 7,
+  "conclusion": "建议购买",
+  "overlapScore": 30,
+  "budgetPremiumRate": 0.25,
+  "complementarityScore": 70,
+  "productReview": {
+    "rating": 8,
+    "quality": "Salomon风壳系列以轻量防风著称，SENSE AERO WIND面料透气耐磨，做工精良，适合春秋户外运动。",
+    "pros": [
+      "重量轻，易收纳",
+      "防风性能良好",
+      "品牌口碑好，耐用"
+    ],
+    "cons": [
+      "防风但不防水，雨雪天气需搭配硬壳",
+      "M码对75kg可能略紧，建议试穿"
+    ],
+    "valueComment": "958元价格略高于同类国产品牌，但Salomon品质和设计出色，同价位竞品如Mammut、Arc'teryx类似产品价格更高，性价比中等偏上。"
+  },
+  "summary": "Salomon SENSE AERO WIND是一款高品质轻量防风外套，适合春秋户外活动。用户已有软壳夹克（Mammut Macun 2.0）和皮肤衣（TNF防晒皮肤衣），但这款风壳更侧重轻量防风，可作为补充。尺码基本合适，搭配现有中层和下层无冲突。价格合理，建议购买。",
+  "reasons": [
+    "用户已有Mammut Macun 2.0软壳夹克和TNF防晒皮肤衣，功能有部分重叠",
+    "但该风壳更轻量、专注防风，适合高强度有氧运动场景",
+    "尺码M适合170cm/75kg体型，版型宽松",
+    "品牌品质高，价格适中"
+  ],
+  "neutralAdvice": [
+    "若追求极致轻量，可考虑更便宜的替代品如国产品牌",
+    "建议确认尺码是否合身，因用户体重接近上限",
+    "春秋季可搭配Montbell速干T恤和Mammut软壳裤使用"
+  ]
+}
+ POST /recommend 200 in 8996ms
+ ✓ Compiled /input in 262ms (1152 modules)
+ GET /input 200 in 380ms
+ GET /query 200 in 1992ms
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1697ms
+ ✓ Compiled in 231ms (1166 modules)
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 138ms
+ ✓ Compiled in 166ms (1166 modules)
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 82ms
+ ✓ Compiled in 384ms (1166 modules)
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 78ms
+ ✓ Compiled in 249ms (1166 modules)
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 82ms
+ ✓ Compiled in 201ms (1166 modules)
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 81ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1921ms
+ ✓ Compiled /middleware in 352ms (213 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (101kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (231kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 1610ms (1039 modules)
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 2709ms
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 822ms
+ ✓ Compiled / in 207ms (1026 modules)
+ GET / 200 in 1108ms
+ GET / 200 in 39ms
+ ✓ Compiled /input in 160ms (1021 modules)
+ GET /input 200 in 213ms
+ GET /input 200 in 22ms
+ GET /query 200 in 1558ms
+ GET /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1899ms
+ POST /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 891ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1408ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1227ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1974ms
+ ✓ Compiled /middleware in 127ms (213 modules)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 629ms (1021 modules)
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 2854ms
+ ✓ Compiled / in 168ms (1026 modules)
+ GET / 200 in 39ms
+ GET / 200 in 1099ms
+ ✓ Compiled /input in 115ms (1021 modules)
+ GET /input 200 in 163ms
+ GET /query 200 in 2766ms
+ GET /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1439ms
+ POST /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 948ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1375ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1305ms
+ ✓ Compiled in 231ms (1035 modules)
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 132ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1500ms
+ ✓ Compiled /favicon.ico in 230ms (796 modules)
+ GET /favicon.ico 200 in 320ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1784ms
+ GET /favicon.ico 200 in 3ms
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 1553ms
+ GET /favicon.ico 200 in 4ms
+ ✓ Compiled in 186ms (1035 modules)
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 177ms
+ ✓ Compiled in 44ms (256 modules)
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 44ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ✓ Compiled /middleware in 130ms (213 modules)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 645ms (1021 modules)
+ GET /query?msg=new+row+for+relation+%22outdoor_gears%22+violates+check+constraint+%22outdoor_gears_category_check%22&type=error 200 in 3074ms
+ ✓ Compiled /favicon.ico in 138ms (785 modules)
+ GET /favicon.ico 200 in 223ms
+ ✓ Compiled / in 165ms (1043 modules)
+ GET / 200 in 1025ms
+ GET / 200 in 38ms
+ GET /query 200 in 892ms
+ GET /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1945ms
+ POST /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 922ms
+ GET /query?msg=%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%BD%93%E5%89%8D%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB%E4%B8%8D%E4%B8%80%E8%87%B4%E3%80%82%E8%AF%B7%E5%9C%A8+Supabase+%E6%89%A7%E8%A1%8C%E6%9C%80%E6%96%B0+SQL+%E8%BF%81%E7%A7%BB%EF%BC%88%E6%9B%B4%E6%96%B0+outdoor_gears_category_check%EF%BC%89%E3%80%82&type=error 200 in 1591ms
+ GET /query?msg=%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%BD%93%E5%89%8D%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB%E4%B8%8D%E4%B8%80%E8%87%B4%E3%80%82%E8%AF%B7%E5%9C%A8+Supabase+%E6%89%A7%E8%A1%8C%E6%9C%80%E6%96%B0+SQL+%E8%BF%81%E7%A7%BB%EF%BC%88%E6%9B%B4%E6%96%B0+outdoor_gears_category_check%EF%BC%89%E3%80%82&type=error 200 in 884ms
+ ✓ Compiled in 83ms (254 modules)
+ GET /query?msg=%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%BD%93%E5%89%8D%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB%E4%B8%8D%E4%B8%80%E8%87%B4%E3%80%82%E8%AF%B7%E5%9C%A8+Supabase+%E6%89%A7%E8%A1%8C%E6%9C%80%E6%96%B0+SQL+%E8%BF%81%E7%A7%BB%EF%BC%88%E6%9B%B4%E6%96%B0+outdoor_gears_category_check%EF%BC%89%E3%80%82&type=error 200 in 44ms
+ POST /query?msg=%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%BD%93%E5%89%8D%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB%E4%B8%8D%E4%B8%80%E8%87%B4%E3%80%82%E8%AF%B7%E5%9C%A8+Supabase+%E6%89%A7%E8%A1%8C%E6%9C%80%E6%96%B0+SQL+%E8%BF%81%E7%A7%BB%EF%BC%88%E6%9B%B4%E6%96%B0+outdoor_gears_category_check%EF%BC%89%E3%80%82&type=error 200 in 2542ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 888ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2050ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 809ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2201ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 997ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2166ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 806ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2061ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 860ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2223ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 841ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2260ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 852ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2047ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 837ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 1378ms
+ GET /favicon.ico 200 in 14ms
+ GET /query 200 in 1270ms
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1336ms
+ POST /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1973ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 819ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2084ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 842ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2124ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 848ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2405ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 821ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 1292ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 1957ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 830ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2149ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 847ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2111ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 852ms
+ POST /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2173ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 846ms
+ GET /query?msg=%E8%A3%85%E5%A4%87%E5%B7%B2%E6%9B%B4%E6%96%B0&type=success 200 in 2717ms
+ GET /favicon.ico 200 in 4ms
+ ○ Compiling /recommend ...
+ ✓ Compiled /recommend in 605ms (1160 modules)
+ GET /recommend 200 in 726ms
+ GET /query 200 in 1373ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1363ms
+ GET /query 200 in 1465ms
+ GET /query?category=%E7%9F%AD%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1611ms
+ GET /query?category=%E7%9F%AD%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1599ms
+ GET /query 200 in 1572ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1299ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1129ms
+ GET /query 200 in 1570ms
+ ✓ Compiled in 247ms (1157 modules)
+ GET /query 200 in 191ms
+ ✓ Compiled in 205ms (1157 modules)
+ GET /query 200 in 145ms
+ ✓ Compiled in 151ms (1157 modules)
+ GET /query 200 in 88ms
+ ✓ Compiled in 38ms (259 modules)
+ GET /query 200 in 42ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1972ms
+ ✓ Compiled /middleware in 127ms (213 modules)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 664ms (1021 modules)
+ GET /query 200 in 2304ms
+ ✓ Compiled /favicon.ico in 140ms (785 modules)
+ GET /favicon.ico 200 in 216ms
+ GET /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1491ms
+ GET /query?category=%E7%9F%AD%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1584ms
+ GET /query?category=%E6%A3%89%E6%9C%8D%2F%E6%8A%93%E7%BB%92&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1594ms
+ GET /query?category=%E7%BE%BD%E7%BB%92%E6%9C%8D&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1279ms
+ GET /query?category=%E8%BD%AF%E5%A3%B3%2F%E7%9A%AE%E8%82%A4%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1270ms
+ GET /query?category=%E7%A1%AC%E5%A3%B3%2F%E9%9B%A8%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1212ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1762ms
+ GET /query?category=%E7%9F%AD%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1338ms
+ GET /query?category=%E7%9F%AD%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 844ms
+ GET /query?category=%E9%9E%8B%E5%B1%A5&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1278ms
+ ✓ Compiled in 221ms (1021 modules)
+ GET /query?category=%E9%9E%8B%E5%B1%A5&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 700ms
+ ✓ Compiled in 192ms (1021 modules)
+ GET /query?category=%E9%9E%8B%E5%B1%A5&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 142ms
+ ✓ Compiled in 108ms (1021 modules)
+ GET /query?category=%E9%9E%8B%E5%B1%A5&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 501ms
+ GET /query?category=%E9%9E%8B%E5%B1%A5&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1570ms
+ ✓ Compiled /favicon.ico in 93ms (785 modules)
+ GET /favicon.ico 200 in 152ms
+ GET /query 200 in 1377ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1361ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 2149ms
+ GET /favicon.ico 200 in 5ms
+ ✓ Compiled / in 295ms (1029 modules)
+ GET / 200 in 1824ms
+ GET /query 200 in 1667ms
+ GET /query?category=%E7%9F%AD%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1720ms
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1707ms
+ ✓ Compiled in 214ms (1026 modules)
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 182ms
+[Error: ENOENT: no such file or directory, stat '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/huayu/git/gear-metrics/.next/cache/webpack/server-development/6.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/huayu/git/gear-metrics/.next/cache/webpack/client-development/4.pack.gz'
+ ✓ Compiled in 126ms (1026 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 686ms (1360 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 2296ms
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 237ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 741ms
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 229ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 729ms
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 260ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json',
+  page: '/query'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/huayu/git/gear-metrics/.next/routes-manifest.json'
+}
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 726ms
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 500 in 259ms
+ ✓ Compiled in 145ms (1374 modules)
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1959ms
+ ✓ Compiled /middleware in 345ms (213 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (101kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (231kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 1683ms (1039 modules)
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 3794ms
+ ✓ Compiled /favicon.ico in 117ms (785 modules)
+ GET /favicon.ico 200 in 195ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.3s
+ ✓ Compiled /middleware in 132ms (213 modules)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 661ms (1021 modules)
+ GET /query?category=%E5%85%A8%E9%83%A8&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 3645ms
+ ✓ Compiled /favicon.ico in 100ms (785 modules)
+ GET /favicon.ico 200 in 177ms
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1837ms
+ ✓ Compiled in 292ms (1021 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 155ms
+ ✓ Compiled in 104ms (1021 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 104ms
+ ✓ Compiled in 239ms (1021 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 86ms
+ ✓ Compiled in 51ms (253 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 37ms
+ ✓ Compiled in 58ms (253 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 35ms
+ ✓ Compiled in 38ms (253 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 23ms
+ ✓ Compiled in 37ms (253 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 36ms
+ ✓ Compiled in 42ms (253 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 29ms
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 11.8s
+ ✓ Compiled /middleware in 141ms (213 modules)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 639ms (1021 modules)
+ GET /query?category=%E8%A3%A4%E8%A3%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 2127ms
+ ✓ Compiled /favicon.ico in 138ms (785 modules)
+ GET /favicon.ico 200 in 218ms
+ ✓ Compiled / in 196ms (1043 modules)
+ GET / 200 in 1114ms
+ GET / 200 in 38ms
+ GET /query 200 in 1375ms
+ GET /query?category=%E9%95%BF%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 2535ms
+ GET /query?category=%E7%9F%AD%E8%A2%96T%E6%81%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 3705ms
+ GET /query?category=%E6%A3%89%E6%9C%8D%2F%E6%8A%93%E7%BB%92&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 239ms
+ GET /query?category=%E6%A3%89%E6%9C%8D%2F%E6%8A%93%E7%BB%92&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 825ms
+ GET /query?category=%E6%A3%89%E6%9C%8D%2F%E6%8A%93%E7%BB%92&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1613ms
+ GET /query?category=%E7%BE%BD%E7%BB%92%E6%9C%8D&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 36ms
+ GET /query?category=%E7%BE%BD%E7%BB%92%E6%9C%8D&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 894ms
+ GET /query?category=%E8%BD%AF%E5%A3%B3%2F%E7%9A%AE%E8%82%A4%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1644ms
+Error: fetch failed
+    at context.fetch (/Users/huayu/git/gear-metrics/node_modules/next/dist/server/web/sandbox/context.js:321:60)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/helpers.js:121:25)
+    at _handleRequest (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:122:24)
+    at _request (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:112:24)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2512:82)
+    at SupabaseAuthClient._useSession (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2329:26)
+    at async SupabaseAuthClient._getUser (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2502:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2486:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2274:28) {
+  
+}
+Error: fetch failed
+    at context.fetch (/Users/huayu/git/gear-metrics/node_modules/next/dist/server/web/sandbox/context.js:321:60)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/helpers.js:121:25)
+    at _handleRequest (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:122:24)
+    at _request (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:112:24)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2512:82)
+    at SupabaseAuthClient._useSession (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2329:26)
+    at async SupabaseAuthClient._getUser (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2502:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2486:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2274:28) {
+  
+}
+Error: fetch failed
+    at context.fetch (/Users/huayu/git/gear-metrics/node_modules/next/dist/server/web/sandbox/context.js:321:60)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/helpers.js:121:25)
+    at _handleRequest (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:122:24)
+    at _request (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:112:24)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2512:82)
+    at SupabaseAuthClient._useSession (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2329:26)
+    at async SupabaseAuthClient._getUser (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2502:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2486:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2274:28) {
+  
+}
+Error: fetch failed
+    at context.fetch (/Users/huayu/git/gear-metrics/node_modules/next/dist/server/web/sandbox/context.js:321:60)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/helpers.js:121:25)
+    at _handleRequest (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:122:24)
+    at _request (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/lib/fetch.js:112:24)
+    at eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2512:82)
+    at SupabaseAuthClient._useSession (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2329:26)
+    at async SupabaseAuthClient._getUser (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2502:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2486:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/@supabase/auth-js/dist/module/GoTrueClient.js:2274:28) {
+  
+}
+[?25h
+
+> gear-metrics@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.151:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.3s
+ ✓ Compiled /middleware in 104ms (213 modules)
+ ○ Compiling /query ...
+ ✓ Compiled /query in 642ms (1021 modules)
+ GET /query?category=%E8%BD%AF%E5%A3%B3%2F%E7%9A%AE%E8%82%A4%E8%A1%A3&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1327ms
+ ✓ Compiled / in 197ms (1026 modules)
+ GET / 200 in 1515ms
+ ✓ Compiled /favicon.ico in 94ms (789 modules)
+ GET /favicon.ico 200 in 175ms
+ GET /query 200 in 1766ms
+ GET /query?category=%E9%95%BF%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1611ms
+ GET /query?category=%E7%9F%AD%E8%A3%A4&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 3067ms
+ GET /query?category=%E9%9E%8B%E5%B1%A5&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 2779ms
+ GET /query?category=%E8%83%8C%E5%8C%85&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1671ms
+ GET /query?category=%E5%85%B6%E4%BB%96&status=%E5%85%A8%E9%83%A8&date_from=&date_to=&price_min=&price_max=&brand= 200 in 1659ms
+ ○ Compiling /recommend ...
+ ✓ Compiled /recommend in 571ms (1143 modules)
+ GET /recommend 200 in 714ms
+ GET /query 200 in 1691ms
+ GET /recommend 200 in 38ms
+[AI Outfit] Prompt:
+ 你是户外穿搭顾问。请根据目的地多日天气和出行目的，从用户已有装备中挑选 1 套穿搭方案。
+
+输入信息：
+- 目的地：北京
+- 出行日期：2026-05-25
+- 出行天数：1 天
+- 出行目的：外出
+- 每日天气预报：
+  2026-05-25：中雨，19℃ ~ 22℃
+
+行李策略：自由搭配（可根据天气和天数灵活推荐）
+
+可用装备（已按状态/品类预筛选，温标信息已隐藏，请根据装备品类和名称自行判断适合温度）：
+[
+  {
+    "id": "4e6110d1-93e3-4883-b229-840f1f8050f5",
+    "name": "Mammut Excursion ML 抓绒夹克",
+    "brand": "MAMMUT",
+    "category": "棉服/抓绒",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "秋冬中层抓绒"
+  },
+  {
+    "id": "e81a6160-c030-4478-a192-a1764e64c7e1",
+    "name": "ARC’TERYX Atom Hoody",
+    "brand": "ARC’TERYX",
+    "category": "棉服/抓绒",
+    "color": "幽雾绿",
+    "status": "在用",
+    "remarks": "保暖棉服，适合：-5℃～15℃"
+  },
+  {
+    "id": "00d555b2-2928-4b3d-9584-ce40042c57b2",
+    "name": "Cormac Crew SS 速干 T 恤",
+    "brand": "ARC’TERYX",
+    "category": "短袖T恤",
+    "color": "灰色",
+    "status": "在用",
+    "remarks": "排汗最强，UPF 50+ 防晒"
+  },
+  {
+    "id": "58f5cbd1-f75c-48cc-bdd1-864f6bde8cef",
+    "name": "Mammut Essential 速干 T 恤",
+    "brand": "MAMMUT",
+    "category": "短袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "高强度有氧"
+  },
+  {
+    "id": "c50dc4c3-a979-413f-8696-2b29bce9fcfa",
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "短袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "id": "93fb47e2-fe20-4569-b947-37fe6337403d",
+    "name": "MLB 休闲 T 恤纯色",
+    "brand": "MLB",
+    "category": "短袖T恤",
+    "color": "米白色",
+    "status": "在用",
+    "remarks": "潮流休闲、纯棉质感"
+  },
+  {
+    "id": "332c4354-bb1b-419f-920e-65b9cefc4c8c",
+    "name": "Soft Jersey 短袖针织衫芯吸",
+    "brand": "lululemon",
+    "category": "短袖T恤",
+    "color": "海军蓝",
+    "status": "在用",
+    "remarks": "（LM3ES3S）"
+  },
+  {
+    "id": "a900678c-c70a-4736-85f8-7f6c06e6a70f",
+    "name": "小野人 科技面料 男士五分裤（GMP-24SC02）",
+    "brand": "GRAMICCI",
+    "category": "短裤",
+    "color": "灰卡其色",
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "id": "e22997b1-2696-4d69-bf90-df67e6c09cab",
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "短裤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "炎热天气(NS6NR06)"
+  },
+  {
+    "id": "42ad478a-79a7-4b09-aed7-a9786043a21d",
+    "name": "TNF 夏季速干运动短裤",
+    "brand": "TNF",
+    "category": "短裤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "夏季轻徒步 (NS6NQ01)"
+  },
+  {
+    "id": "ee98b02b-f93a-4d0d-aee5-d99f4c6b8610",
+    "name": "LEE 工装裤",
+    "brand": "LEE",
+    "category": "短裤",
+    "color": "橄榄绿",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "319e6771-6970-4d38-b52d-45a67b423910",
+    "name": "SUPERDRYTEC 羽绒服",
+    "brand": "Montbell",
+    "category": "羽绒服",
+    "color": null,
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "c506f206-1d79-424b-9b2e-9280b9731660",
+    "name": "Hiking 徒步防风夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "轻便防风"
+  },
+  {
+    "id": "ea1dcbe8-2ce6-4e50-9bd4-a416068f4955",
+    "name": "TNF 透气防晒皮肤衣",
+    "brand": "TNF",
+    "category": "软壳/皮肤衣",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "防晒（NJ2LQ05）"
+  },
+  {
+    "id": "a6a38120-53f6-4a82-a2af-37fc6c2792c1",
+    "name": "Macun 2.0 (红标) 软壳夹克",
+    "brand": "MAMMUT",
+    "category": "软壳/皮肤衣",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "防风防泼水，春秋 15℃～20℃"
+  },
+  {
+    "id": "a1252e8c-5554-4471-bc1b-c24acc773de5",
+    "name": "TNF 长袖 T 恤 (8DG5)",
+    "brand": "TNF",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "吸湿速干"
+  },
+  {
+    "id": "dc588967-19e7-4406-9aff-132f6413715d",
+    "name": "Montbell 吸湿速干长袖 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "抗菌防臭（1107704）"
+  },
+  {
+    "id": "83757247-a745-4dbc-be51-2df5e5a12e7d",
+    "name": "Montbell 长袖速干 T 恤",
+    "brand": "Montbell",
+    "category": "长袖T恤",
+    "color": "蓝绿色",
+    "status": "在用",
+    "remarks": "轻量透气 (1114688)"
+  },
+  {
+    "id": "0ac4f6d8-e20b-427a-aa0f-9b608b62d0d3",
+    "name": "Arc'teryx Kragg 男士长袖T恤",
+    "brand": "ARC’TERYX",
+    "category": "长袖T恤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "ca29cbb5-5366-4e2b-9773-d891ef699cdc",
+    "name": "Montbell 加绒软壳裤",
+    "brand": "Montbell",
+    "category": "长裤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "冬季主力"
+  },
+  {
+    "id": "032f7745-537f-4ef3-8e6f-7efd27b6032d",
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "长裤",
+    "color": "深山影绿",
+    "status": "在用",
+    "remarks": "秋季徒步"
+  },
+  {
+    "id": "ce788bdf-5f05-4549-9342-f3e07ca7a512",
+    "name": "Mammut Trekkers 3.0 软壳裤",
+    "brand": "MAMMUT",
+    "category": "长裤",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "天猫日本直邮"
+  },
+  {
+    "id": "f8417920-9430-401d-a071-848d528ea94f",
+    "name": "ABC 修身剪裁长裤",
+    "brand": "lululemon",
+    "category": "长裤",
+    "color": "杂色黑",
+    "status": "在用",
+    "remarks": "法兰绒保暖"
+  },
+  {
+    "id": "62e0e74f-4922-4efd-b686-9fc01cbd1380",
+    "name": "小野人 直筒宽松九分休闲裤（G103-OGT）",
+    "brand": "GRAMICCI",
+    "category": "长裤",
+    "color": "军绿色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "469ae769-aaa4-46cf-b0cc-a275b2b45eb6",
+    "name": "小野人 直筒裤 (GMP-24SC01)",
+    "brand": "GRAMICCI",
+    "category": "长裤",
+    "color": "灰卡其色",
+    "status": "在用",
+    "remarks": "科技面料"
+  },
+  {
+    "id": "a7486b3f-255a-461f-bd27-58c67db0ede0",
+    "name": "HOKA CHALLENGER 8 ATR 跑鞋",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "color": "黑色",
+    "status": "在用",
+    "remarks": "挑战者 8 全地形跑鞋"
+  },
+  {
+    "id": "ef889bdf-b012-4a72-b7f4-04a84f06915b",
+    "name": "UA Easy Step 休闲运动鞋 (6007578)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "color": "粘土白",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "3a3c297b-cc18-4d34-b089-f8d11bd64b18",
+    "name": "ASICS COURT MZ 2.0 复古板鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "color": "碳灰色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "6a41d67b-a550-4198-a2c0-e29141916300",
+    "name": "UA HOVR Phantom 24/7 跑鞋 (3028443)",
+    "brand": "Under Armour",
+    "category": "鞋履",
+    "color": "卡其色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "08b96258-fb41-4ff2-9d24-5263b035398b",
+    "name": "ASICS GEL-KAHANA 8 越野跑鞋",
+    "brand": "ASICS",
+    "category": "鞋履",
+    "color": "灰色",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "dab6e8a6-f564-4952-a59d-049f99cf410e",
+    "name": "HOKA Hopara 2",
+    "brand": "HOKA",
+    "category": "鞋履",
+    "color": "野菇灰/蘑菇灰",
+    "status": "在用",
+    "remarks": null
+  },
+  {
+    "id": "a4f5459c-1d0b-4dd5-9419-f9389c7d4b30",
+    "name": "Salomon XA PRO 3D 越野徒步鞋",
+    "brand": "Salomon",
+    "category": "鞋履",
+    "color": "褐色",
+    "status": "在用",
+    "remarks": "褐色"
+  }
+]
+
+要求：
+1) 根据出行目的调整穿搭风格（旅游偏功能舒适、商务出差偏简洁正式、日常通勤偏实用）。
+2) outfits 数组长度**必须**为 1，每天一套，day 从 1 开始递增。
+3) 每套穿搭的 topLayers 按从内到外的顺序排列。
+4) 优先复用装备（如基础层可重复），但外套尽量错开，保持新鲜感。
+5) 考虑颜色搭配协调性，避免同套内颜色冲突。
+6) 仅可使用输入装备，不得虚构。
+7) 若某天库存不足在 notes 说明。
+8) 输出中文，简洁可执行。
+AI SDK Warning System: To turn off warning logging, set the AI_SDK_LOG_WARNINGS global to false.
+AI SDK Warning (deepseek.chat / deepseek-chat): The feature "responseFormat JSON schema" is used in a compatibility mode. JSON response schema is injected into the system message.
+[AI Outfit] Response:
+ {
+  "feasible": true,
+  "missingLayers": [
+    "防风防雨层"
+  ],
+  "weather": [
+    {
+      "date": "2026-05-25",
+      "minTemp": 19,
+      "maxTemp": 22,
+      "condition": "中雨"
+    }
+  ],
+  "summary": "北京5月25日中雨，气温19~22℃，建议穿着速干排汗内层搭配防水外层，注意防雨。由于缺少防水冲锋衣，建议使用软壳夹克应急。",
+  "outfits": [
+    {
+      "day": 1,
+      "topLayers": [
+        "Cormac Crew SS 速干 T 恤",
+        "Macun 2.0 (红标) 软壳夹克"
+      ],
+      "bottomLayer": "Mammut Trekkers 3.0 软壳裤（深山影绿）",
+      "footwear": "HOKA Hopara 2",
+      "accessories": [
+        "TNF 透气防晒皮肤衣"
+      ],
+      "notes": "中雨天气，缺少防水冲锋衣，但软壳夹克可防泼水，速干T恤排汗，软壳裤和Hopara 2鞋具备一定防水性，皮肤衣可临时防雨。"
+    }
+  ],
+  "notes": [
+    "缺少专用防风防雨层（冲锋衣），建议未来添置。"
+  ]
+}
+ POST /recommend 200 in 6588ms
