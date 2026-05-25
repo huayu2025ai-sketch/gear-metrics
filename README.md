@@ -47,6 +47,13 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 在 Supabase SQL Editor 执行：
 
 - [设计文档](/Users/huayu/git/gear-metrics/设计文档.md) 中 `6.5 Supabase SQL v1（可执行）`
+- [用户画像迁移脚本](/Users/huayu/git/gear-metrics/migration-user-profiles.sql)（新增 `user_profiles`，用于 AI 审计适合性）
+
+## 用户画像设置
+
+- 登录后进入 `/settings`
+- 维护身高、体重、年龄
+- AI 新购审计会读取该画像用于“适合性审查”
 
 ## 质量校验
 

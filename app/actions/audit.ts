@@ -56,8 +56,8 @@ async function requireSupabaseWithUser() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return { supabase, error: "请先登录后再使用 AI 功能" as string | null };
-  return { supabase, error: null as string | null };
+  if (!user) return { supabase, user: null, error: "请先登录后再使用 AI 功能" as string | null };
+  return { supabase, user, error: null as string | null };
 }
 
 export async function generatePurchaseAudit(formData: FormData) {
@@ -69,8 +69,8 @@ export async function generatePurchaseAudit(formData: FormData) {
     return { success: false as const, error: parsed.error.issues[0]?.message ?? "输入参数不合法" };
   }
 
-  const { supabase, error: authError } = await requireSupabaseWithUser();
-  if (authError) {
+  const { supabase, user, error: authError } = await requireSupabaseWithUser();
+  if (authError || !user) {
     return { success: false as const, error: authError };
   }
 
@@ -87,6 +87,16 @@ export async function generatePurchaseAudit(formData: FormData) {
 
   const assets = data ?? [];
 
+  const { data: profileData } = await supabase
+    .from("user_profiles")
+    .select("height_cm,weight_kg,age")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  const profileText = profileData
+    ? `- 身高：${profileData.height_cm}cm\n- 体重：${profileData.weight_kg}kg\n- 年龄：${profileData.age}岁`
+    : "- 未配置（缺少用户画像，请不要给出绝对适配结论）";
+
   const model = pickModel();
   if (!model) {
     return { success: false as const, error: "未配置 AI Key（DEEPSEEK_API_KEY / GEMINI_API_KEY / ANTHROPIC_API_KEY）" };
@@ -96,9 +106,7 @@ export async function generatePurchaseAudit(formData: FormData) {
     const auditPrompt = `你是理性消费审计助手。请基于用户画像、拟购装备描述和现有资产，给出中立建议。
 
 用户画像（审计必须考虑）：
-- 身高：170cm
-- 体重：75kg
-- 年龄：48岁
+${profileText}
 
 拟购装备描述（用户直接粘贴，请从中提取名称、品牌、分类、价格、功能规格）：
 ${parsed.data.description}
@@ -108,7 +116,7 @@ ${JSON.stringify(assets, null, 2)}
 
 审计维度与要求：
 0) 商品本身评测（独立于用户适合性）：基于品牌口碑、型号定位、面料/技术配置、做工水准，给出客观的商品品质评价。包括优点、缺点、同价位竞争力。
-1) 适合性审查：该装备的尺码、版型、功能定位是否适合身高170cm、体重75kg、年龄48岁的用户？如过于年轻化、尺码范围不包含、版型不适合该体型，必须明确指出。
+1) 适合性审查：结合用户画像判断该装备的尺码、版型、功能定位是否适合该用户；如果用户画像未配置，fitAssessment.suitable 必须填 true，reason 说明“未配置用户画像，无法严格判断”。
 2) 重复投资审查：与已有资产的功能重叠度。如果已有同类装备且功能覆盖，应标记为高重叠，降低购买指数。
 3) 互补搭配审查：该装备是否能与已有装备形成搭配（如新买的裤子能搭已有外套），而不是替代关系。搭配利用已有装备越多，互补分越高。
 4) 预算审查：从描述中提取拟购价格，与同分类历史均价对比。若无法提取价格，budgetPremiumRate 设为0并在 reasons 中说明。
@@ -133,6 +141,14 @@ ${JSON.stringify(assets, null, 2)}
       },
       context: {
         inventoryCount: assets.length,
+        profileConfigured: Boolean(profileData),
+        profile: profileData
+          ? {
+              height_cm: Number(profileData.height_cm),
+              weight_kg: Number(profileData.weight_kg),
+              age: Number(profileData.age),
+            }
+          : null,
       },
     };
   } catch (e) {

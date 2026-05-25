@@ -35,6 +35,12 @@ type AuditResult =
       };
       context: {
         inventoryCount: number;
+        profileConfigured: boolean;
+        profile: {
+          height_cm: number;
+          weight_kg: number;
+          age: number;
+        } | null;
       };
     };
 
@@ -82,11 +88,29 @@ export function PurchaseAuditPanel() {
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
                 <span>参与审计资产：{result.context.inventoryCount} 件</span>
                 <span>
+                  用户画像：{result.context.profileConfigured ? "已配置" : "未配置（适合性结论会降级）"}
+                </span>
+                {result.context.profile ? (
+                  <span>
+                    画像快照：{result.context.profile.height_cm}cm / {result.context.profile.weight_kg}kg / {result.context.profile.age}岁
+                  </span>
+                ) : null}
+                <span>
                   识别：{result.data.extractedBrand} {result.data.extractedName}
                 </span>
                 <span>分类：{result.data.extractedCategory}</span>
                 <span>提取价格：{result.data.extractedPrice > 0 ? `¥${result.data.extractedPrice}` : "未提取到"}</span>
               </div>
+
+              {!result.context.profileConfigured ? (
+                <div className="rounded-md border border-amber-400/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-300">
+                  未配置用户画像，适合性审查会降级。请先到{" "}
+                  <a href="/settings" className="underline">
+                    系统设置
+                  </a>{" "}
+                  维护身高、体重、年龄。
+                </div>
+              ) : null}
 
               <div className="rounded-md border border-white/[0.06] bg-white/[0.02] p-3">
                 <p className="mb-1 text-xs text-[#888]">适合性评估</p>

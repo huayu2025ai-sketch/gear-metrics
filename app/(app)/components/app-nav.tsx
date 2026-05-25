@@ -9,6 +9,7 @@ const NAV = [
   { href: "/input", label: "录入", icon: "+" },
   { href: "/query", label: "查询", icon: "☰" },
   { href: "/recommend", label: "AI推荐", icon: "◈" },
+  { href: "/settings", label: "设置", icon: "⚙" },
 ];
 
 function NavItem({
