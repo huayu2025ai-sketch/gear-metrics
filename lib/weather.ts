@@ -6,6 +6,32 @@ export type WeatherInfo = {
   condition: string;
 };
 
+type GeoLocation = {
+  name: string;
+  latitude: number;
+  longitude: number;
+  country?: string;
+  admin1?: string;
+  admin2?: string;
+};
+
+const DESTINATION_ALIASES: Record<string, GeoLocation> = {
+  长白山: {
+    name: "长白山",
+    latitude: 42.006,
+    longitude: 128.055,
+    country: "中国",
+    admin1: "吉林省",
+  },
+  长白山天池: {
+    name: "长白山天池",
+    latitude: 42.006,
+    longitude: 128.055,
+    country: "中国",
+    admin1: "吉林省",
+  },
+};
+
 export async function queryWeather(
   destination: string,
   date: string
@@ -19,40 +45,29 @@ export async function queryWeatherRange(
   startDate: string,
   days: number
 ): Promise<WeatherInfo[]> {
+  const trimmedDestination = destination.trim();
+  const endDate = computeEndDate(startDate, days);
+
   // 1. Geocoding
   const geoRes = await fetch(
     `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
-      destination
-    )}&count=1&language=zh`,
+      trimmedDestination
+    )}&count=10&language=zh`,
     { next: { revalidate: 3600 } }
   );
   if (!geoRes.ok) {
     throw new Error("地理位置查询失败");
   }
-  const geoData = (await geoRes.json()) as {
-    results?: Array<{
-      name: string;
-      latitude: number;
-      longitude: number;
-    }>;
-  };
-  if (!geoData.results || geoData.results.length === 0) {
-    throw new Error(`无法找到目的地：${destination}`);
-  }
-  const loc = geoData.results[0];
+  const geoData = (await geoRes.json()) as { results?: GeoLocation[] };
+  const loc = pickLocation(trimmedDestination, geoData.results);
 
-  // 2. Compute end date
-  const end = new Date(startDate);
-  end.setDate(end.getDate() + days - 1);
-  const endDate = end.toISOString().split("T")[0];
-
-  // 3. Forecast
+  // 2. Forecast
   const weatherRes = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&start_date=${startDate}&end_date=${endDate}`,
     { next: { revalidate: 3600 } }
   );
   if (!weatherRes.ok) {
-    throw new Error("天气预报查询失败");
+    throw new Error(await buildWeatherError(weatherRes));
   }
   const weatherData = (await weatherRes.json()) as {
     daily?: {
@@ -65,7 +80,10 @@ export async function queryWeatherRange(
   if (
     !weatherData.daily ||
     !weatherData.daily.time ||
-    weatherData.daily.time.length === 0
+    weatherData.daily.time.length === 0 ||
+    !weatherData.daily.temperature_2m_min ||
+    !weatherData.daily.temperature_2m_max ||
+    !weatherData.daily.weather_code
   ) {
     throw new Error("无法获取该日期的天气预报");
   }
@@ -77,6 +95,59 @@ export async function queryWeatherRange(
     maxTemp: Math.round(weatherData.daily!.temperature_2m_max[idx]),
     condition: weatherCodeToText(weatherData.daily!.weather_code[idx]),
   }));
+}
+
+function computeEndDate(startDate: string, days: number): string {
+  const start = new Date(`${startDate}T00:00:00Z`);
+  if (Number.isNaN(start.getTime())) {
+    throw new Error("出行日期格式错误，需为 YYYY-MM-DD");
+  }
+
+  const end = new Date(start);
+  end.setUTCDate(end.getUTCDate() + days - 1);
+  return end.toISOString().split("T")[0];
+}
+
+function pickLocation(destination: string, results?: GeoLocation[]): GeoLocation {
+  const alias = DESTINATION_ALIASES[destination];
+  const candidates = results ?? [];
+
+  if (candidates.length === 0) {
+    if (alias) return alias;
+    throw new Error(`无法找到目的地：${destination}`);
+  }
+
+  const exactChinaMatch = candidates.find(
+    (item) => item.name === destination && item.country === "中国"
+  );
+  if (exactChinaMatch) return exactChinaMatch;
+
+  const chinaMatch = candidates.find((item) => item.country === "中国");
+  if (chinaMatch) return chinaMatch;
+
+  return alias ?? candidates[0];
+}
+
+async function buildWeatherError(response: Response): Promise<string> {
+  let reason = "";
+  try {
+    const data = (await response.json()) as { reason?: string };
+    reason = data.reason ?? "";
+  } catch {
+    // Ignore non-JSON error bodies from upstream.
+  }
+
+  if (/past|historical|archive/i.test(reason)) {
+    return "天气预报暂不支持过去日期，请选择今天或未来日期";
+  }
+  if (/forecast days|date range|invalid date|start_date|end_date/i.test(reason)) {
+    return "天气预报仅支持近期日期，请把出行日期调整到未来约 16 天内";
+  }
+  if (/timezone/i.test(reason)) {
+    return "天气预报查询失败：目的地时区解析异常，请换用更具体的城市或景区名称";
+  }
+
+  return reason ? `天气预报查询失败：${reason}` : "天气预报查询失败";
 }
 
 function weatherCodeToText(code: number): string {
