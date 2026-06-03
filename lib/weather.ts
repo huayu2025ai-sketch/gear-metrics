@@ -10,6 +10,7 @@ type GeoLocation = {
   name: string;
   latitude: number;
   longitude: number;
+  elevation?: number;
   country?: string;
   admin1?: string;
   admin2?: string;
@@ -20,6 +21,7 @@ const DESTINATION_ALIASES: Record<string, GeoLocation> = {
     name: "长白山",
     latitude: 42.006,
     longitude: 128.055,
+    elevation: 2200,
     country: "中国",
     admin1: "吉林省",
   },
@@ -27,6 +29,7 @@ const DESTINATION_ALIASES: Record<string, GeoLocation> = {
     name: "长白山天池",
     latitude: 42.006,
     longitude: 128.055,
+    elevation: 2190,
     country: "中国",
     admin1: "吉林省",
   },
@@ -65,8 +68,12 @@ export async function queryWeatherRange(
   const loc = pickLocation(trimmedDestination, geoData.results);
 
   // 2. Forecast
+  let forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&start_date=${startDate}&end_date=${endDate}`;
+  if (loc.elevation != null) {
+    forecastUrl += `&elevation=${loc.elevation}`;
+  }
   const weatherRes = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&start_date=${startDate}&end_date=${endDate}`,
+    forecastUrl,
     { headers: { "User-Agent": "gear-metrics/0.1" }, next: { revalidate: 3600 } }
   );
   if (!weatherRes.ok) {
@@ -120,15 +127,39 @@ function pickLocation(destination: string, results?: GeoLocation[]): GeoLocation
     throw new Error(`无法找到目的地：${destination}`);
   }
 
+  // Prefer exact name match in China; if an alias has a province hint, use it to
+  // disambiguate duplicates (e.g. 长白山 exists in both Xinjiang and Jilin).
   const exactChinaMatch = candidates.find(
-    (item) => item.name === destination && item.country === "中国"
+    (item) =>
+      item.name === destination &&
+      item.country === "中国" &&
+      (alias == null || alias.admin1 == null || item.admin1 === alias.admin1)
   );
-  if (exactChinaMatch) return exactChinaMatch;
 
-  const chinaMatch = candidates.find((item) => item.country === "中国");
-  if (chinaMatch) return chinaMatch;
+  let chosen: GeoLocation;
+  if (exactChinaMatch) {
+    chosen = exactChinaMatch;
+  } else {
+    const chinaMatch = candidates.find((item) => item.country === "中国");
+    chosen = chinaMatch ?? candidates[0];
+  }
 
-  return alias ?? candidates[0];
+  // Merge alias data: for curated high-altitude spots, alias overrides
+  // coordinates and elevation to ensure accurate temperature forecasts.
+  if (alias) {
+    chosen = {
+      ...chosen,
+      name: alias.name,
+      latitude: alias.latitude ?? chosen.latitude,
+      longitude: alias.longitude ?? chosen.longitude,
+      elevation: alias.elevation ?? chosen.elevation,
+      country: alias.country ?? chosen.country,
+      admin1: alias.admin1 ?? chosen.admin1,
+      admin2: alias.admin2 ?? chosen.admin2,
+    };
+  }
+
+  return chosen;
 }
 
 async function safeReadErrorText(response: Response): Promise<string> {
