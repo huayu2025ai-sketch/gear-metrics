@@ -53,10 +53,13 @@ export async function queryWeatherRange(
     `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
       trimmedDestination
     )}&count=10&language=zh`,
-    { next: { revalidate: 3600 } }
+    { headers: { "User-Agent": "gear-metrics/0.1" }, next: { revalidate: 3600 } }
   );
   if (!geoRes.ok) {
-    throw new Error("地理位置查询失败");
+    const geoErr = await safeReadErrorText(geoRes);
+    throw new Error(
+      `地理位置查询失败${geoRes.status ? ` (${geoRes.status})` : ""}${geoErr ? `：${geoErr}` : ""}`
+    );
   }
   const geoData = (await geoRes.json()) as { results?: GeoLocation[] };
   const loc = pickLocation(trimmedDestination, geoData.results);
@@ -64,7 +67,7 @@ export async function queryWeatherRange(
   // 2. Forecast
   const weatherRes = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto&start_date=${startDate}&end_date=${endDate}`,
-    { next: { revalidate: 3600 } }
+    { headers: { "User-Agent": "gear-metrics/0.1" }, next: { revalidate: 3600 } }
   );
   if (!weatherRes.ok) {
     throw new Error(await buildWeatherError(weatherRes));
@@ -128,10 +131,23 @@ function pickLocation(destination: string, results?: GeoLocation[]): GeoLocation
   return alias ?? candidates[0];
 }
 
-async function buildWeatherError(response: Response): Promise<string> {
-  let reason = "";
+async function safeReadErrorText(response: Response): Promise<string> {
   try {
-    const data = (await response.json()) as { reason?: string };
+    const text = await response.text();
+    return text.slice(0, 200);
+  } catch {
+    return "";
+  }
+}
+
+async function buildWeatherError(response: Response): Promise<string> {
+  const statusPrefix = response.status ? ` (${response.status})` : "";
+  let reason = "";
+  let rawText = "";
+
+  try {
+    rawText = await response.text();
+    const data = JSON.parse(rawText) as { reason?: string };
     reason = data.reason ?? "";
   } catch {
     // Ignore non-JSON error bodies from upstream.
@@ -144,10 +160,12 @@ async function buildWeatherError(response: Response): Promise<string> {
     return "天气预报仅支持近期日期，请把出行日期调整到未来约 16 天内";
   }
   if (/timezone/i.test(reason)) {
-    return "天气预报查询失败：目的地时区解析异常，请换用更具体的城市或景区名称";
+    return `天气预报查询失败${statusPrefix}：目的地时区解析异常，请换用更具体的城市或景区名称`;
   }
 
-  return reason ? `天气预报查询失败：${reason}` : "天气预报查询失败";
+  if (reason) return `天气预报查询失败${statusPrefix}：${reason}`;
+  if (rawText) return `天气预报查询失败${statusPrefix}：${rawText.slice(0, 200)}`;
+  return `天气预报查询失败${statusPrefix}`;
 }
 
 function weatherCodeToText(code: number): string {
